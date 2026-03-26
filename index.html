@@ -277,6 +277,7 @@
     border-radius: 4px; overflow: hidden; transition: border-color .2s;
   }
   .case-card:hover { border-color: var(--border-strong); }
+  .case-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
   .case-header { padding: 28px 28px 20px; border-bottom: 1px solid var(--border); }
   .case-industry-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; display: block; }
   .case-company { font-family: var(--font-display); font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--white); letter-spacing: .02em; }
@@ -393,6 +394,40 @@
     .case-results { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
   }
+
+  @media (max-width: 600px) {
+    .section { padding: 64px 0; }
+    .section-sm { padding: 40px 0; }
+    .hero { padding: 100px 0 64px; }
+    .hero-line { display: none; }
+    .hero-headline { font-size: 44px; }
+    .hero-sub { font-size: 16px; margin-bottom: 28px; }
+    .hero-stat-card { padding: 20px; gap: 20px; }
+    .stat-val { font-size: 40px; }
+    .btn-primary { width: 100%; justify-content: center; font-size: 15px; padding: 14px 24px; }
+    .btn-ghost { display: block; margin-left: 0; margin-top: 14px; text-align: center; }
+    .nav-cta { font-size: 11px; padding: 7px 10px; letter-spacing: .02em; white-space: nowrap; }
+    .process-row { grid-template-columns: 1fr; gap: 4px; padding: 20px; }
+    .process-day { margin-bottom: 4px; }
+    .case-photo { aspect-ratio: 16 / 9; }
+    .case-results { grid-template-columns: 1fr; gap: 12px; }
+    .case-header { padding: 20px; }
+    .case-body { padding: 16px 20px; }
+    .case-quote { padding: 14px 20px; }
+    .step-card { padding: 24px; }
+    .step-number { font-size: 52px; }
+    .tier-card { padding: 24px; }
+    .why-card { padding: 24px; }
+    .faq-item { padding: 20px; }
+    .cta-headline { font-size: 36px; }
+    .cta-reassurance { flex-direction: column; gap: 12px; align-items: flex-start; padding: 0 12px; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+    .trust-logos { gap: 20px; }
+    .section-header { margin-bottom: 32px; }
+    .industries-list { gap: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -440,26 +475,26 @@
       </div>
       <div class="hero-stat-card fade-up delay-4">
         <div class="stat-item">
-          <div class="mono" style="margin-bottom:6px">Average job value lost per missed call</div>
           <div class="stat-val">$8K+</div>
+          <div class="mono" style="margin-bottom:6px">Average job value lost per missed call</div>
           <div class="stat-label">One inbound lead from your website pays for<br>3 years of our monthly retainer.</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="mono" style="margin-bottom:6px">of all service searches happen on mobile</div>
           <div class="stat-val">63%</div>
+          <div class="mono" style="margin-bottom:6px">of all service searches happen on mobile</div>
           <div class="stat-label">If your site doesn't load fast and look right on a phone, you're invisible to most of your market.</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="mono" style="margin-bottom:6px">Typical time from sign-off to site live</div>
           <div class="stat-val">5 days</div>
+          <div class="mono" style="margin-bottom:6px">Typical time from sign-off to site live</div>
           <div class="stat-label">Not 6 weeks. Not after 47 revisions. As few as five business days and your phone starts ringing.</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="mono" style="margin-bottom:6px">AI answers inquiries when you can't</div>
           <div class="stat-val">24/7</div>
+          <div class="mono" style="margin-bottom:6px">AI answers inquiries when you can't</div>
           <div class="stat-label">An AI assistant on your site captures leads after hours, qualifies them, and texts you instantly — so you call back while the job is still hot.</div>
         </div>
       </div>
@@ -757,6 +792,7 @@
     <div class="cases-grid">
 
       <div class="case-card">
+        <img class="case-photo" src="https://res.cloudinary.com/du0witbcr/image/upload/tweber_nyhlxz.png" alt="T. Weber Co. Ltd. website before and after">
         <div class="case-header">
           <span class="case-industry-tag">Asphalt Paving · Kitchener-Waterloo-Cambridge</span>
           <div class="case-company">T. Weber Co. Ltd.</div>
@@ -786,6 +822,7 @@
       </div>
 
       <div class="case-card">
+        <img class="case-photo" src="https://res.cloudinary.com/du0witbcr/image/upload/mascore_os8ozc.png" alt="Mascore Helical Piles website before and after">
         <div class="case-header">
           <span class="case-industry-tag">Helical Piles + Foundation · Ontario-wide</span>
           <div class="case-company">Mascore Helical Piles</div>
@@ -815,6 +852,7 @@
       </div>
 
       <div class="case-card">
+        <img class="case-photo" src="https://res.cloudinary.com/du0witbcr/image/upload/ferro-anchors_lkctxm.png" alt="Ferro Anchors website before and after">
         <div class="case-header">
           <span class="case-industry-tag">Fall Arrest Systems · Toronto + US Markets</span>
           <div class="case-company">Ferro Anchors</div>
@@ -844,6 +882,7 @@
       </div>
 
       <div class="case-card">
+        <img class="case-photo" src="https://res.cloudinary.com/du0witbcr/image/upload/haulland_kaydyn.png" alt="Haulland Trucking website before and after">
         <div class="case-header">
           <span class="case-industry-tag">Trucking + Aggregates · Hamilton–Niagara–GTA</span>
           <div class="case-company">Haulland Trucking</div>
