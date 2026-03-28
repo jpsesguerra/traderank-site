@@ -22,7 +22,7 @@
     --amber-dim: rgba(240,144,10,0.12);
     --white: #fafaf8;
     --off-white: #e8e8e4;
-    --muted: #888882;
+    --muted: #999994;
     --muted-2: #5a5a56;
     --green: #4caf72;
     --green-dim: rgba(76,175,114,0.12);
@@ -369,6 +369,54 @@
   .footer-bottom p { font-size: 12px; color: var(--muted-2); }
   .footer-location { font-family: var(--font-mono); font-size: 11px; color: var(--muted-2); letter-spacing: .06em; text-transform: uppercase; }
 
+  /* ── AI-READY SECTION ── */
+  .ai-ready-section { background: var(--off-black); border-top: 1px solid var(--border); }
+  .ai-ready-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .ai-ready-tag { margin-bottom: 20px; border-color: rgba(240,144,10,0.5); }
+  .ai-ready-headline {
+    font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 52px);
+    font-weight: 900; text-transform: uppercase; color: var(--white);
+    line-height: 1.05; margin-bottom: 20px;
+  }
+  .ai-ready-body { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+  .ai-ready-body-last { margin-bottom: 32px; }
+  .ai-ready-em { color: var(--off-white); }
+  .ai-ready-features { display: flex; flex-direction: column; gap: 14px; }
+  .ai-ready-feature { display: flex; gap: 14px; align-items: flex-start; }
+  .ai-ready-check {
+    width: 28px; height: 28px; border-radius: 3px;
+    background: var(--amber-dim); border: 1px solid rgba(240,144,10,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 13px; color: var(--amber); font-weight: 700; margin-top: 1px;
+  }
+  .ai-ready-feature-title { font-size: 14px; font-weight: 600; color: var(--off-white); margin-bottom: 3px; }
+  .ai-ready-feature-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .ai-ready-card { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 4px; overflow: hidden; }
+  .ai-ready-card-header {
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ai-ready-card-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .ai-ready-badge {
+    font-family: var(--font-mono); font-size: 10px; color: var(--green);
+    background: var(--green-dim); padding: 3px 8px; border-radius: 2px;
+    border: 1px solid rgba(76,175,114,0.3);
+  }
+  .ai-ready-card-body { padding: 20px; }
+  .ai-ready-query-label { font-size: 12px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 12px; letter-spacing: .04em; }
+  .ai-ready-query-box { background: var(--off-black); border: 1px solid var(--border-strong); border-radius: 4px; padding: 14px 16px; margin-bottom: 20px; }
+  .ai-ready-query-text { font-size: 14px; color: var(--off-white); font-style: italic; line-height: 1.6; margin: 0; }
+  .ai-ready-response { border-left: 2px solid var(--amber); padding-left: 16px; }
+  .ai-ready-response-title { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .ai-ready-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+  .ai-ready-company { font-family: var(--font-display); font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--white); }
+  .ai-ready-response-text { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0 0 12px; }
+  .ai-ready-response-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .ai-ready-rating { font-size: 12px; color: var(--green); }
+  .ai-ready-url { font-size: 12px; color: var(--muted); font-family: var(--font-mono); }
+  .ai-ready-card-footer { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .ai-ready-footnote { font-size: 12px; color: var(--muted-2); line-height: 1.6; font-style: italic; }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp .6s ease forwards; }
@@ -392,7 +440,37 @@
     .process-owner { display: none; }
     .footer-links { gap: 24px; }
     .case-results { grid-template-columns: repeat(2, 1fr); }
-    .nav-links { display: none; }
+    .ai-ready-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ── HAMBURGER NAV ── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: var(--amber);
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px; left: 0; right: 0;
+      background: rgba(10,10,9,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 14px 24px; width: 100%; font-size: 15px; }
   }
 
   @media (max-width: 600px) {
@@ -442,6 +520,7 @@
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <a href="#contact" class="nav-cta">Book Free Audit →</a>
   </div>
 </nav>
@@ -586,27 +665,6 @@
       <h2 class="section-headline">Found on Google.<br>Live in as few<br>as 5 days.</h2>
       <p class="section-sub">We've built a system specifically for trades businesses. You don't manage a project. You answer a few questions — we build the rest. Most clients see their first inbound call within 30 days of launch.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-number">01</div>
-        <div class="step-title">Free audit call</div>
-        <p class="step-body">We review your current site, your Google presence, and what your competitors are doing. You walk away with a clear picture of exactly what's costing you leads — whether you hire us or not.</p>
-        <div class="step-timeline">20 minutes. No sales pitch.</div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">02</div>
-        <div class="step-title">We build everything</div>
-        <p class="step-body">You answer our intake form (30 minutes of your time, max). We handle design, copy, Google Business Profile, review automation, and AI chat setup. You don't touch a single thing.</p>
-        <div class="step-timeline">Days 1–4 — we're heads down</div>
-      </div>
-      <div class="step-card">
-        <div class="step-number">03</div>
-        <div class="step-title">Your phone rings</div>
-        <p class="step-body">Site goes live on Day 5. Contact forms route leads to your phone as instant SMS alerts. Review requests go out automatically after every job. Your Google ranking starts climbing within weeks.</p>
-        <div class="step-timeline">Day 5 — you're live</div>
-      </div>
-    </div>
-
     <div style="margin-top:48px">
       <div style="margin-bottom:16px"><span class="tag">Day-by-day delivery</span></div>
       <div class="process-timeline">
@@ -718,63 +776,63 @@
 </section>
 
 <!-- AI READY SECTION -->
-<section class="section" style="background: var(--off-black); border-top: 1px solid var(--border);">
+<section class="section ai-ready-section">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+    <div class="ai-ready-grid">
       <div>
-        <span class="tag" style="margin-bottom: 20px; border-color: rgba(240,144,10,0.5);">Built for where things are going</span>
-        <h2 style="font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 52px); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: 20px;">Your competitors aren't<br>AI-ready.<br><span style="color: var(--amber);">You will be.</span></h2>
-        <p style="font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px;">Homeowners used to open the Yellow Pages. Then they Googled. Now they're asking ChatGPT, Siri, and Google's AI Overview: <em style="color: var(--off-white);">"Who's the best HVAC contractor near me?"</em></p>
-        <p style="font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 32px;">The businesses that show up in those AI answers are the ones with well-structured websites, strong Google profiles, and consistent reviews. That's exactly what we build. We're not just making you look good today — we're making sure you're found however people search tomorrow.</p>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <div style="width: 28px; height: 28px; border-radius: 3px; background: var(--amber-dim); border: 1px solid rgba(240,144,10,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; color: var(--amber); font-weight: 700; margin-top: 1px;">✓</div>
+        <span class="tag ai-ready-tag">Built for where things are going</span>
+        <h2 class="ai-ready-headline">Your competitors aren't<br>AI-ready.<br><span class="amber">You will be.</span></h2>
+        <p class="ai-ready-body">Homeowners used to open the Yellow Pages. Then they Googled. Now they're asking ChatGPT, Siri, and Google's AI Overview: <em class="ai-ready-em">"Who's the best HVAC contractor near me?"</em></p>
+        <p class="ai-ready-body ai-ready-body-last">The businesses that show up in those AI answers are the ones with well-structured websites, strong Google profiles, and consistent reviews. That's exactly what we build. We're not just making you look good today — we're making sure you're found however people search tomorrow.</p>
+        <div class="ai-ready-features">
+          <div class="ai-ready-feature">
+            <div class="ai-ready-check">✓</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--off-white); margin-bottom: 3px;">Structured for AI search</div>
-              <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">We build your site so AI tools like ChatGPT and Google's AI Overview can read and recommend your business — not just human visitors.</div>
+              <div class="ai-ready-feature-title">Structured for AI search</div>
+              <div class="ai-ready-feature-desc">We build your site so AI tools like ChatGPT and Google's AI Overview can read and recommend your business — not just human visitors.</div>
             </div>
           </div>
-          <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <div style="width: 28px; height: 28px; border-radius: 3px; background: var(--amber-dim); border: 1px solid rgba(240,144,10,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; color: var(--amber); font-weight: 700; margin-top: 1px;">✓</div>
+          <div class="ai-ready-feature">
+            <div class="ai-ready-check">✓</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--off-white); margin-bottom: 3px;">AI chat that works while you work</div>
-              <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">An AI assistant on your site answers common questions, qualifies leads, and captures contact info at 11pm on a Saturday — then texts you instantly so you can call back first.</div>
+              <div class="ai-ready-feature-title">AI chat that works while you work</div>
+              <div class="ai-ready-feature-desc">An AI assistant on your site answers common questions, qualifies leads, and captures contact info at 11pm on a Saturday — then texts you instantly so you can call back first.</div>
             </div>
           </div>
-          <div style="display: flex; gap: 14px; align-items: flex-start;">
-            <div style="width: 28px; height: 28px; border-radius: 3px; background: var(--amber-dim); border: 1px solid rgba(240,144,10,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; color: var(--amber); font-weight: 700; margin-top: 1px;">✓</div>
+          <div class="ai-ready-feature">
+            <div class="ai-ready-check">✓</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--off-white); margin-bottom: 3px;">Reputation that compounds</div>
-              <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">AI systems weight heavily toward businesses with consistent 5-star reviews. Our automated review system builds that reputation passively — without you asking a single customer manually.</div>
+              <div class="ai-ready-feature-title">Reputation that compounds</div>
+              <div class="ai-ready-feature-desc">AI systems weight heavily toward businesses with consistent 5-star reviews. Our automated review system builds that reputation passively — without you asking a single customer manually.</div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <div style="background: var(--surface); border: 1px solid var(--border-strong); border-radius: 4px; overflow: hidden;">
-          <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
-            <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);">AI search result preview</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; color: var(--green); background: var(--green-dim); padding: 3px 8px; border-radius: 2px; border: 1px solid rgba(76,175,114,0.3);">AI-ready</span>
+        <div class="ai-ready-card">
+          <div class="ai-ready-card-header">
+            <span class="ai-ready-card-label">AI search result preview</span>
+            <span class="ai-ready-badge">AI-ready</span>
           </div>
-          <div style="padding: 20px;">
-            <div style="font-size: 12px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 12px; letter-spacing: .04em;">Someone just asked Google AI:</div>
-            <div style="background: var(--off-black); border: 1px solid var(--border-strong); border-radius: 4px; padding: 14px 16px; margin-bottom: 20px;">
-              <p style="font-size: 14px; color: var(--off-white); font-style: italic; line-height: 1.6; margin: 0;">"Who is the best HVAC contractor in Hamilton Ontario?"</p>
+          <div class="ai-ready-card-body">
+            <div class="ai-ready-query-label">Someone just asked Google AI:</div>
+            <div class="ai-ready-query-box">
+              <p class="ai-ready-query-text">"Who is the best HVAC contractor in Hamilton Ontario?"</p>
             </div>
-            <div style="font-size: 12px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 12px; letter-spacing: .04em;">AI Overview response:</div>
-            <div style="border-left: 2px solid var(--amber); padding-left: 16px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--amber);"></div>
-                <span style="font-family: var(--font-display); font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--white);">[Your Company Name]</span>
+            <div class="ai-ready-query-label">AI Overview response:</div>
+            <div class="ai-ready-response">
+              <div class="ai-ready-response-title">
+                <div class="ai-ready-dot"></div>
+                <span class="ai-ready-company">[Your Company Name]</span>
               </div>
-              <p style="font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0 0 12px;">Highly rated HVAC contractor in Hamilton with 85+ five-star Google reviews. Specializes in residential and commercial AC installation and furnace repair. Serving Hamilton, Stoney Creek, Ancaster, and Burlington.</p>
-              <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                <span style="font-size: 12px; color: var(--green);">★★★★★ 4.9 (85 reviews)</span>
-                <span style="font-size: 12px; color: var(--muted); font-family: var(--font-mono);">yourcompany.ca</span>
+              <p class="ai-ready-response-text">Highly rated HVAC contractor in Hamilton with 85+ five-star Google reviews. Specializes in residential and commercial AC installation and furnace repair. Serving Hamilton, Stoney Creek, Ancaster, and Burlington.</p>
+              <div class="ai-ready-response-meta">
+                <span class="ai-ready-rating">★★★★★ 4.9 (85 reviews)</span>
+                <span class="ai-ready-url">yourcompany.ca</span>
               </div>
             </div>
-            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
-              <p style="font-size: 12px; color: var(--muted-2); line-height: 1.6; font-style: italic;">This is what being AI-ready looks like. Strong site structure + consistent reviews + optimized Google profile = your business showing up in AI search answers. We build all three.</p>
+            <div class="ai-ready-card-footer">
+              <p class="ai-ready-footnote">This is what being AI-ready looks like. Strong site structure + consistent reviews + optimized Google profile = your business showing up in AI search answers. We build all three.</p>
             </div>
           </div>
         </div>
@@ -943,32 +1001,32 @@
     <p class="section-sub">Every web agency says they work with contractors. We only work with contractors. That difference shows up in the copy we write, the sites we build, and the results we get.</p>
     <div class="why-grid">
       <div class="why-card">
-        <span class="why-icon">⚡</span>
+        <span class="why-icon" role="img" aria-label="Lightning bolt - speed">⚡</span>
         <div class="why-title">Live in as few as 5 days</div>
         <p class="why-body">We've built and refined one great system for trades businesses. We don't start from scratch. We don't disappear for six weeks. Most Foundation sites go live in five business days — because that's when your leads start coming in, not when we feel like finishing.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon">🎯</span>
+        <span class="why-icon" role="img" aria-label="Target - precision focus">🎯</span>
         <div class="why-title">We speak trades</div>
         <p class="why-body">We know the difference between a residential and commercial paving job. We know that HVAC demand spikes twice a year. We know that fall protection is a regulated B2B sale. That knowledge is in the copy we write for your site — and it converts.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon">📊</span>
+        <span class="why-icon" role="img" aria-label="Bar chart - measurable results">📊</span>
         <div class="why-title">Results you can see</div>
         <p class="why-body">Every retainer client gets a monthly report — written in plain English, not agency speak. How many people found you on Google, how your rankings moved, how many new reviews came in, and how many calls came from your site. The numbers that tell you whether you're getting ROI.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon">🔒</span>
+        <span class="why-icon" role="img" aria-label="Padlock - you own everything">🔒</span>
         <div class="why-title">You own everything</div>
         <p class="why-body">Your site files are backed up and fully portable. Your domain is yours. If you ever leave us (you won't want to), you walk away with everything — files, content, domain. No hostage hosting. No vendor lock-in. This is how we'd want it done if we were the client.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon">📱</span>
+        <span class="why-icon" role="img" aria-label="Mobile phone - mobile-first design">📱</span>
         <div class="why-title">Built for mobile-first</div>
         <p class="why-body">63% of your potential customers are searching from a phone. Every site we build is designed for the phone first and desktop second. Fast load times, tap-to-call buttons, forms that actually work on a thumb.</p>
       </div>
       <div class="why-card">
-        <span class="why-icon">🤝</span>
+        <span class="why-icon" role="img" aria-label="Handshake - transparent partnership">🤝</span>
         <div class="why-title">No surprises</div>
         <p class="why-body">Flat monthly retainer. No hidden fees. Scope defined in writing before we start. Two revision rounds included. Extra requests billed transparently at a clear hourly rate. You'll know exactly what you're paying for every month.</p>
       </div>
@@ -1060,11 +1118,11 @@
         </div>
         <div class="footer-col">
           <h4>Trades</h4>
-          <a href="#">HVAC</a>
-          <a href="#">Plumbing</a>
-          <a href="#">Roofing</a>
-          <a href="#">Excavation</a>
-          <a href="#">Paving</a>
+          <a href="javascript:void(0)" title="Coming soon">HVAC</a>
+          <a href="javascript:void(0)" title="Coming soon">Plumbing</a>
+          <a href="javascript:void(0)" title="Coming soon">Roofing</a>
+          <a href="javascript:void(0)" title="Coming soon">Excavation</a>
+          <a href="javascript:void(0)" title="Coming soon">Paving</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
@@ -1083,6 +1141,24 @@
 </footer>
 
 <script>
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.textContent = '☰';
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
