@@ -148,32 +148,43 @@
 
   /* ── TRUST BAR ── */
   .trust-bar {
-    padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    background: var(--surface);
+    padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--surface); overflow: hidden;
   }
   .trust-inner {
     display: flex; align-items: center; gap: 0;
-    max-width: 1160px; margin: 0 auto; padding: 0 24px;
+    max-width: 100%; padding: 0;
   }
   .trust-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--muted-2); white-space: nowrap;
-    padding-right: 32px; border-right: 1px solid var(--border-strong);
-    margin-right: 32px; flex-shrink: 0;
+    padding: 0 32px; border-right: 1px solid var(--border-strong);
+    flex-shrink: 0; z-index: 2;
   }
-  .trust-logos {
-    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+  .trust-marquee-wrap {
+    overflow: hidden; flex: 1; position: relative;
   }
-  .trust-logo {
-    font-family: var(--font-display); font-size: 15px; font-weight: 700;
-    letter-spacing: .05em; text-transform: uppercase; color: var(--muted-2);
-    transition: color .2s; white-space: nowrap;
+  .trust-marquee-wrap::before,
+  .trust-marquee-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none;
   }
-  .trust-logo:hover { color: var(--muted); }
-  .trust-industry {
-    font-size: 10px; font-family: var(--font-mono); color: var(--muted-2);
-    text-transform: uppercase; letter-spacing: .06em; display: block; margin-top: 1px;
+  .trust-marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+  .trust-marquee-wrap::after  { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+  .trust-marquee {
+    display: flex; align-items: center; gap: 0;
+    width: max-content;
+    animation: marquee 28s linear infinite;
   }
+  .trust-marquee:hover { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .trust-logo-img {
+    height: 36px; width: auto; opacity: .55; filter: grayscale(1) brightness(1.4);
+    transition: opacity .2s, filter .2s; flex-shrink: 0; padding: 0 36px;
+  }
+  .trust-logo-img:hover { opacity: .9; filter: grayscale(0) brightness(1); }
 
   /* ── PROBLEM ── */
   .problem-grid {
@@ -434,8 +445,7 @@
   @media (max-width: 900px) {
     .hero-grid, .problem-grid, .services-header, .cases-grid, .faq-grid, .tiers-grid, .steps-grid, .why-grid { grid-template-columns: 1fr; }
     .hero-headline { font-size: 52px; }
-    .trust-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .trust-label { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border-strong); padding-bottom: 12px; width: 100%; }
+    .trust-label { border-right: none; padding: 0 16px 12px; border-bottom: 1px solid var(--border-strong); width: 100%; }
     .process-row { grid-template-columns: 80px 1fr; }
     .process-owner { display: none; }
     .footer-links { gap: 24px; }
@@ -502,7 +512,7 @@
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
-    .trust-logos { gap: 20px; }
+    .trust-logo-img { height: 28px; padding: 0 24px; }
     .section-header { margin-bottom: 32px; }
     .industries-list { gap: 8px; }
   }
@@ -585,13 +595,29 @@
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-label">Built for<br>trades like</div>
-    <div class="trust-logos">
-      <div class="trust-logo">Ferro Anchors <span class="trust-industry">Fall Protection</span></div>
-      <div class="trust-logo">T. Weber Co. <span class="trust-industry">Asphalt Paving</span></div>
-      <div class="trust-logo">Mascore <span class="trust-industry">Helical Piles</span></div>
-      <div class="trust-logo">Haulland <span class="trust-industry">Trucking + Aggregates</span></div>
-      <div class="trust-logo">Total Excavation <span class="trust-industry">Excavation</span></div>
-      <div class="trust-logo">Ed Hekert <span class="trust-industry">Landscaping</span></div>
+    <div class="trust-marquee-wrap">
+      <div class="trust-marquee">
+        <!-- set 1 -->
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880349/TWeber_mfqhhv.png" alt="T. Weber Co.">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Total_Excavation_gg5pjr.png" alt="Total Excavation">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Mascore_mktmkw.png" alt="Mascore">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Haulland_Trucking_fxkdri.png" alt="Haulland Trucking">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Linked_muzsrt.png" alt="Linked">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Enrich_qrw1r5.png" alt="Enrich">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Liberty_cvwfph.png" alt="Liberty">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Group_2_eombhl.png" alt="Group 2">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Ed_Hekert_hkcorg.png" alt="Ed Hekert">
+        <!-- set 2 (duplicate for seamless loop) -->
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880349/TWeber_mfqhhv.png" alt="T. Weber Co.">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Total_Excavation_gg5pjr.png" alt="Total Excavation">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Mascore_mktmkw.png" alt="Mascore">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Haulland_Trucking_fxkdri.png" alt="Haulland Trucking">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Linked_muzsrt.png" alt="Linked">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Enrich_qrw1r5.png" alt="Enrich">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880348/Liberty_cvwfph.png" alt="Liberty">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Group_2_eombhl.png" alt="Group 2">
+        <img class="trust-logo-img" src="https://res.cloudinary.com/du0witbcr/image/upload/v1774880347/Ed_Hekert_hkcorg.png" alt="Ed Hekert">
+      </div>
     </div>
   </div>
 </div>
