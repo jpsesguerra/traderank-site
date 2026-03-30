@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeRank for HVAC Contractors | Southern Ontario | Get Found. Get Called. Get Paid.</title>
+<meta name="description" content="TradeRank builds high-converting websites and local SEO systems for HVAC contractors in Southern Ontario. Live in 5 days. Never miss an emergency call again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:        #0e0d0b;
+    --paper:      #f5f2ed;
+    --amber:      #d97706;
+    --amber-lt:   #fbbf24;
+    --amber-pale: #fef3c7;
+    --muted:      #6b6760;
+    --rule:       #d1ccc4;
+    --dark:       #1c1a16;
+    --dark2:      #242019;
+    --white:      #ffffff;
+    --red:        #dc2626;
+    --green:      #16a34a;
+    --blue-frost: #e0f2fe;
+
+    /* HVAC accent — icy blue for contrast against amber brand */
+    --hvac:       #0ea5e9;
+    --hvac-dark:  #0369a1;
+    --hvac-pale:  #e0f2fe;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-brand span { color: var(--amber); }
+
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--hvac);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--hvac);
+    border-radius: 2px;
+    margin-left: 14px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--amber) !important;
+    color: var(--dark) !important;
+    font-weight: 600 !important;
+    padding: 8px 20px !important;
+    border-radius: 3px !important;
+    font-size: 13px !important;
+  }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: var(--amber);
+    font-size: 22px;
+    line-height: 1;
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 14px 24px; width: 100%; font-size: 15px; }
+  }
+
+  /* ─── HERO ────────────────────────────────────── */
+  .hero {
+    background: var(--dark);
+    padding: 0 64px;
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* grid texture */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.018) 39px, rgba(255,255,255,0.018) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.018) 39px, rgba(255,255,255,0.018) 40px);
+    pointer-events: none;
+  }
+
+  /* HVAC icy blue glow on right */
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -120px;
+    top: -80px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero-eyebrow-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  .hero-eyebrow-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--hvac);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(52px, 5.5vw, 76px);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+
+  .hero-headline .accent { color: var(--amber); }
+  .hero-headline .frost  { color: var(--hvac); }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 40px;
+    border-left: 2px solid var(--amber);
+    padding-left: 20px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--amber-lt); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--white); }
+  .btn-ghost-arrow { font-size: 16px; transition: transform 0.2s; }
+  .btn-ghost:hover .btn-ghost-arrow { transform: translateX(3px); }
+
+  /* Seasonal urgency card */
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 32px 28px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--hvac);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-card-label::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--hvac);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .season-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .season-block {
+    padding: 18px 16px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .season-block.hot { border-top: 2px solid #f97316; }
+  .season-block.cold { border-top: 2px solid var(--hvac); }
+
+  .season-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .season-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .season-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  .hero-card-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-card-stat-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .hero-card-stat-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* Hero stat strip */
+  .hero-stats {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 28px 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+  }
+
+  .hero-stat {
+    padding: 0 32px 0 0;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+  .hero-stat:first-child { padding-left: 0; }
+
+  .hero-stat-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  /* ─── SECTION WRAPPER ─────────────────────────── */
+  .section { padding: 88px 64px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+
+  .section-title-dark { color: var(--white); }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+
+  .section-sub-dark { color: rgba(255,255,255,0.55); }
+
+  /* ─── PAIN SECTION ────────────────────────────── */
+  .section-pain {
+    background: var(--paper);
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pain-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pain-item:last-child { border-bottom: none; }
+
+  .pain-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .pain-text {
+    font-size: 15px;
+    color: #3d3a35;
+    line-height: 1.65;
+  }
+
+  .pain-text strong {
+    color: var(--ink);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Audit box */
+  .audit-box {
+    background: var(--dark);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .audit-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .audit-header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .audit-header-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: rgba(220,38,38,0.15);
+    color: #f87171;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+  }
+
+  .audit-body { padding: 0; }
+
+  .audit-finding {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .audit-finding:last-child { border-bottom: none; }
+
+  .audit-finding-icon {
+    font-size: 15px;
+    margin-top: 2px;
+  }
+
+  .audit-finding-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .audit-finding-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+
+  .audit-footer {
+    background: rgba(217, 119, 6, 0.08);
+    border-top: 1px solid rgba(217, 119, 6, 0.2);
+    padding: 18px 24px;
+    display: flex;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .audit-footer-arrow {
+    color: var(--amber);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .audit-footer-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+  }
+
+  .audit-footer-text strong { color: var(--amber-lt); font-weight: 600; }
+
+  /* ─── ECONOMICS SECTION ───────────────────────── */
+  .section-econ {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-econ::before {
+    content: '';
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .econ-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .econ-card {
+    background: var(--dark2);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .econ-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .econ-card.amber::after { background: var(--amber); }
+  .econ-card.frost::after { background: var(--hvac); }
+  .econ-card.red::after   { background: #f97316; }
+  .econ-card.green::after { background: #22c55e; }
+
+  .econ-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .econ-value.amber { color: var(--amber); }
+  .econ-value.frost { color: var(--hvac); }
+  .econ-value.red   { color: #fb923c; }
+  .econ-value.green { color: #4ade80; }
+
+  .econ-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  .econ-insight {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .econ-insight-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+  .econ-insight-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .econ-insight-text strong {
+    color: var(--amber-lt);
+    font-weight: 600;
+  }
+
+  /* ─── PROCESS ─────────────────────────────────── */
+  .section-process { background: var(--white); }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    height: 2px;
+    background: var(--rule);
+    z-index: 0;
+  }
+
+  .process-step {
+    position: relative;
+    padding-top: 60px;
+    padding-right: 24px;
+  }
+
+  .process-step:last-child { padding-right: 0; }
+
+  .process-dot {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 3px solid var(--white);
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--amber);
+  }
+
+  .process-day {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .process-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .process-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .process-hvac-note {
+    font-size: 12px;
+    color: var(--hvac-dark);
+    background: var(--hvac-pale);
+    border-left: 2px solid var(--hvac);
+    padding: 8px 10px;
+    border-radius: 0 3px 3px 0;
+    line-height: 1.4;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .process-time {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .process-time strong { color: var(--ink); }
+
+  /* ─── TIERS ───────────────────────────────────── */
+  .section-tiers { background: var(--paper); }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .tier-card {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .tier-card.featured {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 1px var(--amber), 0 8px 32px rgba(217,119,6,0.12);
+    transform: translateY(-4px);
+  }
+
+  .tier-head {
+    padding: 24px 26px 20px;
+    background: var(--dark);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .tier-card.featured .tier-head { border-bottom-color: var(--amber); }
+
+  .tier-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .tier-card.featured .tier-badge { color: var(--amber); }
+
+  .tier-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .tier-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.4;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tier-body {
+    padding: 24px 26px;
+  }
+
+  .tier-outcome {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .tier-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 20px;
+  }
+
+  .tier-features li {
+    font-size: 14px;
+    color: #4a4640;
+    line-height: 1.45;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .tier-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-size: 12px;
+  }
+
+  .tier-hvac-feature {
+    background: var(--hvac-pale);
+    border-left: 2px solid var(--hvac);
+    padding: 8px 12px;
+    border-radius: 0 3px 3px 0;
+    font-size: 12px;
+    color: var(--hvac-dark);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 16px;
+  }
+
+  .tier-cta {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+
+  .tier-cta:hover { background: var(--paper); }
+
+  .tier-card.featured .tier-cta {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--dark);
+  }
+
+  .tier-card.featured .tier-cta:hover { background: var(--amber-lt); }
+
+  /* ─── PROOF WITHOUT CASE STUDY ────────────────── */
+  .section-proof { background: var(--dark); position: relative; overflow: hidden; }
+
+  .section-proof::after {
+    content: '';
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(14,165,233,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .proof-banner {
+    background: rgba(14,165,233,0.08);
+    border: 1px solid rgba(14,165,233,0.2);
+    border-radius: 6px;
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+
+  .proof-banner-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+
+  .proof-banner-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  .proof-banner-text strong { color: var(--hvac); font-weight: 600; }
+
+  .proof-adjacent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .proof-adj-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 28px 26px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .proof-adj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  .proof-adj-industry {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .proof-adj-company {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .proof-adj-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .proof-adj-results {
+    display: flex;
+    gap: 20px;
+  }
+
+  .proof-adj-result-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .proof-adj-result-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.4;
+  }
+
+  /* Expertise indicators */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .expertise-item {
+    background: rgba(255,255,255,0.03);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .expertise-icon { font-size: 24px; margin-bottom: 10px; }
+
+  .expertise-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+
+  .expertise-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ─── SEASONAL SECTION ───────────────────────── */
+  .section-seasonal { background: var(--white); }
+
+  .seasonal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .seasonal-card {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+
+  .seasonal-head {
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .seasonal-head.summer { background: #fff7ed; border-bottom-color: #fed7aa; }
+  .seasonal-head.winter { background: var(--hvac-pale); border-bottom-color: #bae6fd; }
+
+  .seasonal-head-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .seasonal-emoji { font-size: 24px; }
+
+  .seasonal-head-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .seasonal-window {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .seasonal-body { padding: 24px; }
+
+  .seasonal-searches {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .seasonal-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+
+  .search-term {
+    font-family: 'DM Mono', monospace;
+    color: var(--ink);
+    font-size: 12px;
+  }
+
+  .search-vol {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--amber);
+  }
+
+  .search-bar-track {
+    width: 100%;
+    height: 3px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+  }
+
+  .search-bar-fill {
+    height: 100%;
+    background: var(--amber);
+    border-radius: 2px;
+  }
+
+  .seasonal-callout {
+    background: var(--amber-pale);
+    border-left: 3px solid var(--amber);
+    padding: 14px 16px;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    color: #78350f;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  /* ─── AI / SEARCH ─────────────────────────────── */
+  .section-ai { background: var(--paper); }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .ai-points {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .ai-point {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .ai-point-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--dark);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .ai-point-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+
+  .ai-point-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* SERP mockup */
+  .serp-box {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 80px;
+  }
+
+  .serp-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .serp-label::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+  }
+
+  .serp-query {
+    background: #f1f3f4;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .serp-query::before { content: '🔍'; font-size: 14px; }
+
+  .serp-ai-block {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .serp-ai-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--hvac-dark);
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .serp-ai-result {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    border: 1px solid #e0f2fe;
+    position: relative;
+  }
+
+  .serp-ai-result.highlighted {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 1px rgba(217,119,6,0.2);
+  }
+
+  .serp-ai-result.highlighted::before {
+    content: 'YOUR BUSINESS';
+    position: absolute;
+    top: -9px;
+    right: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    background: var(--amber);
+    color: var(--dark);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+  }
+
+  .serp-result-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a0dab;
+    margin-bottom: 2px;
+  }
+
+  .serp-result-meta {
+    font-size: 12px;
+    color: #188038;
+    margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .serp-result-stars {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stars { color: #f59e0b; }
+
+  .serp-organic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .serp-organic-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .serp-organic-item:last-child { border-bottom: none; }
+
+  .serp-organic-title {
+    font-size: 14px;
+    color: #1a0dab;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .serp-organic-url {
+    font-size: 11px;
+    color: #188038;
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 4px;
+  }
+
+  .serp-organic-desc {
+    font-size: 12px;
+    color: #545454;
+    line-height: 1.5;
+  }
+
+  /* ─── CTA SECTION ─────────────────────────────── */
+  .section-cta {
+    background: var(--dark);
+    padding: 96px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px);
+    pointer-events: none;
+  }
+
+  .cta-limit {
+    display: inline-block;
+    background: rgba(217,119,6,0.15);
+    border: 1px solid rgba(217,119,6,0.3);
+    color: var(--amber-lt);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta-headline span { color: var(--amber); }
+
+  .cta-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto 44px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .btn-primary-lg {
+    background: var(--amber);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .btn-primary-lg:hover { background: var(--amber-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217,119,6,0.25); }
+
+  .cta-trust {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .cta-trust-item::before { content: '✓'; color: var(--green); }
+
+  /* ─── FOOTER ──────────────────────────────────── */
+  .footer {
+    background: #12100d;
+    padding: 48px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-brand span { color: var(--amber); }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+
+  .footer-link {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--amber); }
+
+  /* ─── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 32px 40px; min-height: auto; gap: 40px; }
+    .hero-stats { padding: 28px 32px; grid-template-columns: repeat(2, 1fr); grid-column: auto; }
+    .pain-grid, .ai-grid, .seasonal-grid, .proof-adjacent-grid { grid-template-columns: 1fr; }
+    .tier-grid, .econ-grid, .expertise-grid { grid-template-columns: 1fr; gap: 12px; }
+    .process-timeline { grid-template-columns: 1fr; gap: 32px; }
+    .process-timeline::before { display: none; }
+    .process-step { padding-top: 0; padding-left: 32px; }
+    .process-dot { top: 0; }
+    .section { padding: 56px 32px; }
+    .nav { padding: 0 24px; }
+    .cta-actions { flex-direction: column; }
+    .footer { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:0">
+    <a href="index.html" class="nav-brand">Trade<span>Rank</span></a>
+    <span class="nav-tag">HVAC</span>
+  </div>
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#work">Case Studies</a>
+    <a href="index.html#process">Process</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="https://calendly.com/hagi-traderank/30min?month=2026-03" target="_blank" rel="noopener noreferrer" class="nav-cta">Book Free Audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-tag">TradeRank for HVAC</span>
+      <span class="hero-eyebrow-divider"></span>
+      <span class="hero-eyebrow-sub">Southern Ontario</span>
+    </div>
+
+    <h1 class="hero-headline">
+      AC season is<br>
+      <span class="frost">6 weeks away.</span><br>
+      Is your phone<br>
+      <span class="accent">ready?</span>
+    </h1>
+
+    <p class="hero-sub">
+      Right now, homeowners in your city are Googling HVAC contractors for the summer. Your competitor — with more Google reviews and a faster site — is getting those calls. We fix that. In five days.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://calendly.com/hagi-traderank/30min" class="btn-primary">Book Your Free Site Audit</a>
+      <a href="#proof" class="btn-ghost">See our work <span class="btn-ghost-arrow">→</span></a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-card-label">HVAC search demand — Southern Ontario</div>
+    <div class="season-row">
+      <div class="season-block hot">
+        <div class="season-icon">🔥</div>
+        <div class="season-title">Summer Peak</div>
+        <div class="season-desc">May–Aug: "AC repair", "AC installation", "emergency AC" searches spike 4–6×</div>
+      </div>
+      <div class="season-block cold">
+        <div class="season-icon">❄️</div>
+        <div class="season-title">Winter Peak</div>
+        <div class="season-desc">Oct–Jan: "furnace repair", "furnace install", "no heat" searches spike 4–8×</div>
+      </div>
+    </div>
+    <div class="hero-card-stat">
+      <div class="hero-card-stat-value">$6K+</div>
+      <div class="hero-card-stat-text">Average HVAC job value.<br>One lead from your site covers years of retainer.</div>
+    </div>
+  </div>
+
+  <!-- stat strip spans full width below the 2-col grid -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-value">73%</div>
+      <div class="hero-stat-label">of HVAC searches happen on mobile — often in an emergency. Your site has 3 seconds.</div>
+    </div>
+    <div class="hero-stat" style="padding-left:32px;">
+      <div class="hero-stat-value">2×/yr</div>
+      <div class="hero-stat-label">Seasonal demand spikes that your site and GBP need to be ready for before they hit.</div>
+    </div>
+    <div class="hero-stat" style="padding-left:32px;">
+      <div class="hero-stat-value">5 days</div>
+      <div class="hero-stat-label">From client intake to live website. Your competition isn't waiting — neither should you.</div>
+    </div>
+    <div class="hero-stat" style="padding-left:32px;">
+      <div class="hero-stat-value">24/7</div>
+      <div class="hero-stat-label">AI assistant on your site captures after-hours emergency leads and texts you instantly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="section section-pain" id="pain">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">What's costing you jobs right now</h2>
+    </div>
+
+    <div class="pain-grid">
+      <div>
+        <p class="section-sub">You're a skilled HVAC contractor running a real business. Your referral base is solid. The problem is the other half of your market — homeowners who don't know you yet, searching Google right now, calling the first name that shows up.</p>
+
+        <div class="pain-list">
+          <div class="pain-item">
+            <div class="pain-icon">✕</div>
+            <div class="pain-text">
+              <strong>Emergency calls going to your competitor at 11pm</strong>
+              When a furnace dies at 9pm, the homeowner Googles "emergency HVAC [city]." If you don't show up in the map pack — with a tappable phone number and 80+ reviews — that job is gone.
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">✕</div>
+            <div class="pain-text">
+              <strong>Paying HomeStars or Angi for leads Google should send for free</strong>
+              Every month you pay a lead aggregator is a month you're paying for leads your own website should be generating — at zero cost per call.
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">✕</div>
+            <div class="pain-text">
+              <strong>No seasonal campaign for your biggest revenue windows</strong>
+              AC season starts in May. Furnace season starts in October. Your site looks the same year-round. Competitors with seasonal landing pages own those surges.
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">✕</div>
+            <div class="pain-text">
+              <strong>12 Google reviews vs. your competitor's 140</strong>
+              Google's map pack ranks review count and recency. You do great work — your customers just don't know to leave a review unless someone asks. Nobody's asking.
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">✕</div>
+            <div class="pain-text">
+              <strong>No commercial funnel — only residential</strong>
+              Property managers and commercial building ops are worth $20K–$100K+ in annual maintenance contracts. They search differently and convert on different signals. Your site isn't built for them.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit callout box -->
+      <div class="audit-box" id="audit">
+        <div class="audit-header">
+          <div class="audit-header-label">Real site audit — typical HVAC contractor</div>
+          <div class="audit-header-tag">3 critical issues</div>
+        </div>
+        <div class="audit-body">
+          <div class="audit-finding">
+            <div class="audit-finding-icon">✕</div>
+            <div>
+              <div class="audit-finding-title">Phone number not tappable on mobile</div>
+              <div class="audit-finding-desc">73% of HVAC searches are on mobile. Your phone number is displayed as plain text — a customer in a heating emergency can't call you with one tap. Every second of friction costs calls.</div>
+            </div>
+          </div>
+          <div class="audit-finding">
+            <div class="audit-finding-icon">✕</div>
+            <div>
+              <div class="audit-finding-title">Google Business Profile not fully optimized</div>
+              <div class="audit-finding-desc">No service area defined. No photo uploads in the last 6 months. Review response rate: 0%. Google is actively downranking this profile in the local map pack — your competitor's profile is maintained weekly.</div>
+            </div>
+          </div>
+          <div class="audit-finding">
+            <div class="audit-finding-icon">!</div>
+            <div>
+              <div class="audit-finding-title">No dedicated page for each service</div>
+              <div class="audit-finding-desc">"Furnace installation Hamilton" and "AC repair Mississauga" are two different searches with two different intents. One page for all services means you rank for none of them. Separate service pages fix this.</div>
+            </div>
+          </div>
+          <div class="audit-finding">
+            <div class="audit-finding-icon">!</div>
+            <div>
+              <div class="audit-finding-title">No after-hours lead capture</div>
+              <div class="audit-finding-desc">40% of HVAC emergency searches happen between 8pm and midnight. Your site has no chat, no automated response, no lead capture form above the fold. Those leads are calling the next business that answers.</div>
+            </div>
+          </div>
+        </div>
+        <div class="audit-footer">
+          <div class="audit-footer-arrow">→</div>
+          <div class="audit-footer-text">These four issues alone represent <strong>5–8 missed calls per month</strong> for a mid-size HVAC operation. At a $1,500 average job value, that's <strong>$7,500–$12,000/month in calls going to your competition.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+<section class="section section-econ" id="roi">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title section-title-dark">The math is impossible to argue with</h2>
+    </div>
+    <p class="section-sub section-sub-dark">One call closed from your website pays for our retainer many times over. HVAC is high-value work — the ROI on a well-built website is unlike almost any other marketing spend.</p>
+
+    <div class="econ-grid">
+      <div class="econ-card amber">
+        <div class="econ-value amber">$3,800</div>
+        <div class="econ-label">Average residential HVAC job value (install + labour, Southern Ontario 2026)</div>
+      </div>
+      <div class="econ-card frost">
+        <div class="econ-value frost">$28K+</div>
+        <div class="econ-label">Average commercial HVAC maintenance contract, first year — property managers, condo corps</div>
+      </div>
+      <div class="econ-card red">
+        <div class="econ-value red">$150</div>
+        <div class="econ-label">Our Growth retainer monthly cost — one residential job covers 25 months of service</div>
+      </div>
+      <div class="econ-card green">
+        <div class="econ-value green">30 days</div>
+        <div class="econ-label">Typical time to first inbound lead after launch — often from Google Business Profile alone</div>
+      </div>
+    </div>
+
+    <div class="econ-insight">
+      <div class="econ-insight-icon">💡</div>
+      <div class="econ-insight-text">If our website generates <strong>one AC installation job per month</strong> — a conservative result for a properly optimized HVAC site — the ROI on our Growth retainer is <strong>25× your monthly investment</strong>. That's not marketing math. That's HVAC math.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL DEMAND -->
+<section class="section section-seasonal" id="seasonal">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">You have two revenue windows per year.<br>Is your site ready for both?</h2>
+    </div>
+    <p class="section-sub">HVAC demand doesn't grow linearly — it spikes. The contractors who own those spikes aren't lucky. Their sites are optimized before the season starts, their GBP is active, and their review count signals trust when the urgency is highest.</p>
+
+    <div class="seasonal-grid">
+      <div class="seasonal-card">
+        <div class="seasonal-head summer">
+          <div class="seasonal-head-row">
+            <span class="seasonal-emoji">🔥</span>
+            <div class="seasonal-head-title">Summer Peak</div>
+          </div>
+          <div class="seasonal-window">May → August — AC Season</div>
+        </div>
+        <div class="seasonal-body">
+          <ul class="seasonal-searches">
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"AC repair [city]"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:90%"></div></div>
+              </div>
+              <div class="search-vol">4,400/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"air conditioning installation [city]"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:70%"></div></div>
+              </div>
+              <div class="search-vol">2,900/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"emergency AC repair near me"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:55%"></div></div>
+              </div>
+              <div class="search-vol">1,600/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"HVAC contractor [city]"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:80%"></div></div>
+              </div>
+              <div class="search-vol">3,200/mo</div>
+            </li>
+          </ul>
+          <div class="seasonal-callout">If your site and GBP aren't ready by late April, you're playing catch-up for the entire season. We build seasonal pages and GBP campaigns 6 weeks before the peak — not during it.</div>
+        </div>
+      </div>
+
+      <div class="seasonal-card">
+        <div class="seasonal-head winter">
+          <div class="seasonal-head-row">
+            <span class="seasonal-emoji">❄️</span>
+            <div class="seasonal-head-title">Winter Peak</div>
+          </div>
+          <div class="seasonal-window">October → January — Furnace Season</div>
+        </div>
+        <div class="seasonal-body">
+          <ul class="seasonal-searches">
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"furnace repair [city]"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:85%"></div></div>
+              </div>
+              <div class="search-vol">3,800/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"furnace installation near me"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:65%"></div></div>
+              </div>
+              <div class="search-vol">2,400/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"no heat emergency HVAC"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:50%"></div></div>
+              </div>
+              <div class="search-vol">1,100/mo</div>
+            </li>
+            <li class="seasonal-search">
+              <div>
+                <div class="search-term">"HVAC maintenance contract"</div>
+                <div class="search-bar-track"><div class="search-bar-fill" style="width:45%"></div></div>
+              </div>
+              <div class="search-vol">890/mo</div>
+            </li>
+          </ul>
+          <div class="seasonal-callout">Emergency furnace calls are the highest-urgency, highest-conversion leads in the trades. The homeowner will call whoever answers. An AI assistant on your site captures those leads at 1am — and texts you within seconds.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-process" id="process">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Live in 5 days. No project management on your end.</h2>
+    </div>
+    <p class="section-sub">You're running a business. You don't have time to manage a web project. You fill in a form, send us your logo and some job photos, show up for a 20-minute call on Day 5. We handle the rest.</p>
+
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-day">Day 1</div>
+        <div class="process-title">Intake & Content</div>
+        <div class="process-desc">You complete our 30-minute intake form — your services, service area, cities, photos. That's all we need.</div>
+        <div class="process-hvac-note">HVAC: We capture AC, furnace, heat pump, and commercial services separately.</div>
+        <div class="process-time">Your time: <strong>30 min</strong></div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-day">Day 2</div>
+        <div class="process-title">Copy + Structure</div>
+        <div class="process-desc">We write all your page copy — service pages, meta titles, local SEO content. Trades language, not agency fluff.</div>
+        <div class="process-hvac-note">HVAC: Seasonal keywords baked in from Day 1. Separate pages for each service.</div>
+        <div class="process-time">Your time: <strong>0 min</strong></div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-day">Days 3–4</div>
+        <div class="process-title">Full Build</div>
+        <div class="process-desc">Site goes up. Contact form wired to SMS you instantly. AI chat installed. GBP claimed and optimized. Review system configured.</div>
+        <div class="process-hvac-note">HVAC: After-hours emergency capture set up. Seasonal service banners configured.</div>
+        <div class="process-time">Your time: <strong>0 min</strong></div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-day">Day 5</div>
+        <div class="process-title">Launch Call</div>
+        <div class="process-desc">We review the site together, point your domain, and go live. Google gets notified. You're done.</div>
+        <div class="process-hvac-note">HVAC: Google Local Services Ads verified (Dominance tier) — calls start immediately.</div>
+        <div class="process-time">Your time: <strong>20 min</strong></div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-day">Every Month</div>
+        <div class="process-title">Managed for You</div>
+        <div class="process-desc">Monthly SEO report in plain English — rankings, calls, reviews gained. GBP updated. Seasonal campaigns rotated.</div>
+        <div class="process-hvac-note">HVAC: Pre-season campaign pushed 6 weeks before AC/furnace peaks.</div>
+        <div class="process-time">Your time: <strong>0 min</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section section-tiers" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Three packages. One goal: more HVAC calls.</h2>
+    </div>
+    <p class="section-sub">No prices on this page — every HVAC operation is different, and a 4-page residential site is priced differently than a 12-page commercial package. Book a free audit and we'll show you the numbers that make sense for your business.</p>
+
+    <div class="tier-grid">
+      <!-- FOUNDATION -->
+      <div class="tier-card">
+        <div class="tier-head">
+          <div class="tier-badge">Entry</div>
+          <div class="tier-name">Foundation</div>
+          <div class="tier-tagline">Get found. Get calls. Starting fast.</div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-outcome">Stop missing local searches</div>
+          <div class="tier-hvac-feature">✓ HVAC-specific: tap-to-call hero, emergency CTA above the fold</div>
+          <ul class="tier-features">
+            <li>4-page mobile-first site (Home, Services, About, Contact)</li>
+            <li>Google Business Profile setup + optimization</li>
+            <li>Tap-to-call button — priority placement for emergency searches</li>
+            <li>Basic on-page SEO for primary service + top 2 cities</li>
+            <li>Contact form with instant SMS lead alerts to your phone</li>
+            <li>Live in 5 business days</li>
+          </ul>
+          <a href="https://calendly.com/hagi-traderank/30min" class="tier-cta">Book Free Audit</a>
+        </div>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="tier-card featured">
+        <div class="tier-head">
+          <div class="tier-badge">Most Popular ★</div>
+          <div class="tier-name">Growth</div>
+          <div class="tier-tagline">Steady inbound, every season.</div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-outcome">Own the local map pack</div>
+          <div class="tier-hvac-feature">✓ HVAC-specific: seasonal campaign pages, AI after-hours capture, automated reviews</div>
+          <ul class="tier-features">
+            <li>7-page site — dedicated pages for AC, furnace, heat pump, commercial</li>
+            <li>AI chat assistant for after-hours emergency lead capture</li>
+            <li>Automated review requests after every job (SMS to your customers)</li>
+            <li>Seasonal GBP campaigns — 6 weeks before each peak</li>
+            <li>3 local SEO city pages (Hamilton, Mississauga, etc.)</li>
+            <li>Monthly SEO report + call tracking</li>
+          </ul>
+          <a href="https://calendly.com/hagi-traderank/30min" class="tier-cta">Book Free Audit</a>
+        </div>
+      </div>
+
+      <!-- DOMINANCE -->
+      <div class="tier-card">
+        <div class="tier-head">
+          <div class="tier-badge">Premium</div>
+          <div class="tier-name">Dominance</div>
+          <div class="tier-tagline">Own your market. Residential + commercial.</div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-outcome">First call in every city you serve</div>
+          <div class="tier-hvac-feature">✓ HVAC-specific: Google Local Services Ads, commercial property manager funnel, maintenance contract pages</div>
+          <ul class="tier-features">
+            <li>Full site (8–12 pages) — residential + commercial split funnels</li>
+            <li>Google Local Services Ads — pay per call, not per click</li>
+            <li>Commercial funnel: property manager landing page + quote form</li>
+            <li>Maintenance contract SEO pages</li>
+            <li>Monthly strategy call + full analytics dashboard</li>
+            <li>Ad creative (3 assets/month) for AC + furnace seasons</li>
+          </ul>
+          <a href="https://calendly.com/hagi-traderank/30min" class="tier-cta">Book Free Audit</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--amber-pale);border-left:3px solid var(--amber);padding:20px 24px;border-radius:0 4px 4px 0;max-width:700px;">
+      <p style="font-size:15px;color:#78350f;font-weight:500;line-height:1.65;">
+        💡 <strong>The HVAC ROI pitch:</strong> One AC installation job from your website pays for 25 months of our Growth retainer. We'll show you the exact math on your call — based on your average job value and your city's search volume.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section section-proof" id="proof">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title section-title-dark">We don't have an HVAC case study yet.<br>Here's why that's good news for you.</h2>
+    </div>
+
+    <div class="proof-banner">
+      <div class="proof-banner-icon">🎯</div>
+      <div class="proof-banner-text">
+        <strong>We're onboarding 3 HVAC contractors in Southern Ontario this quarter as our first HVAC showcase clients.</strong> That means preferred setup pricing, direct access to our founders, and your business as the featured HVAC case study on this page. We've delivered for contractors across 8 specialty trades — the same system works for HVAC. The only thing missing is a client willing to be first.
+      </div>
+    </div>
+
+    <!-- Adjacent industry proof -->
+    <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:20px;">What we've delivered for adjacent trades</p>
+
+    <div class="proof-adjacent-grid">
+      <div class="proof-adj-card">
+        <div class="proof-adj-industry">Asphalt Paving · Kitchener-Waterloo</div>
+        <div class="proof-adj-company">T. Weber Co. Ltd.</div>
+        <div class="proof-adj-text">3rd generation family business with a solid site that wasn't being used to drive commercial contracts. We built a commercial property manager funnel and seasonal campaign structure — same playbook we run for HVAC commercial.</div>
+        <div class="proof-adj-results">
+          <div>
+            <div class="proof-adj-result-value">3×</div>
+            <div class="proof-adj-result-label">Commercial quote requests in 60 days</div>
+          </div>
+          <div>
+            <div class="proof-adj-result-value">50+</div>
+            <div class="proof-adj-result-label">Years of credibility, finally visible online</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-adj-card">
+        <div class="proof-adj-industry">Excavation · Hamilton Golden Horseshoe</div>
+        <div class="proof-adj-company">Total Excavation Inc.</div>
+        <div class="proof-adj-text">Seasonal business with two demand peaks — exactly like HVAC. Built dedicated seasonal landing pages and an after-hours lead capture system. Contractor quote requests tripled in two months.</div>
+        <div class="proof-adj-results">
+          <div>
+            <div class="proof-adj-result-value">3×</div>
+            <div class="proof-adj-result-label">Contractor quote requests in 60 days</div>
+          </div>
+          <div>
+            <div class="proof-adj-result-value">New</div>
+            <div class="proof-adj-result-label">B2B recurring supply relationships sourced online</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-adj-card">
+        <div class="proof-adj-industry">Fall Protection Systems · Toronto + US</div>
+        <div class="proof-adj-company">Ferro Anchors</div>
+        <div class="proof-adj-text">Serving the US Army and Toronto Zoo — but their testimonials page had live Lorem Ipsum placeholder text. We identified it before they hired us. Fixed in 24 hours. Inspection scheduling system added for recurring revenue.</div>
+        <div class="proof-adj-results">
+          <div>
+            <div class="proof-adj-result-value">24hr</div>
+            <div class="proof-adj-result-label">Critical site fix deployed on Day 1</div>
+          </div>
+          <div>
+            <div class="proof-adj-result-value">+40%</div>
+            <div class="proof-adj-result-label">Qualified inbound since relaunch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-adj-card">
+        <div class="proof-adj-industry">Smart Home Automation · Niagara–Hamilton–Oakville</div>
+        <div class="proof-adj-company">Linked Automation</div>
+        <div class="proof-adj-text">High-value residential service business — like HVAC. Buyers research online before calling anyone. Built a premium visual site targeting high-income homeowners and builders. Monthly blog targeting "smart home [city]" searches.</div>
+        <div class="proof-adj-results">
+          <div>
+            <div class="proof-adj-result-value">High</div>
+            <div class="proof-adj-result-label">Retainer value — premium market</div>
+          </div>
+          <div>
+            <div class="proof-adj-result-value">New</div>
+            <div class="proof-adj-result-label">Builder referral channel activated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HVAC Knowledge proof -->
+    <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin:36px 0 20px;">What we know about HVAC that other agencies don't</p>
+
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <div class="expertise-icon">🌡️</div>
+        <div class="expertise-title">Seasonal SEO</div>
+        <div class="expertise-desc">We rotate your GBP and on-site content before each demand peak — not during it</div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">🏢</div>
+        <div class="expertise-title">Residential vs. Commercial</div>
+        <div class="expertise-desc">Two audiences, two funnels, two conversion paths — built into your site from Day 1</div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">🆘</div>
+        <div class="expertise-title">Emergency Search Intent</div>
+        <div class="expertise-desc">Emergency keywords, tap-to-call priority, after-hours AI capture — for the calls that can't wait until morning</div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">⭐</div>
+        <div class="expertise-title">Review Velocity</div>
+        <div class="expertise-desc">Automated review requests after every job. HVAC buyers trust volume — we build yours systematically, without you asking manually</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI READINESS -->
+<section class="section section-ai" id="ai">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2 class="section-title">AI search is already changing<br>how homeowners find HVAC contractors</h2>
+    </div>
+
+    <div class="ai-grid">
+      <div>
+        <p class="section-sub">ChatGPT, Google's AI Overview, and Siri are now answering "who's the best HVAC contractor near me?" The businesses that show up aren't advertising in those systems. They have structured websites, strong Google profiles, and consistent 5-star reviews. We build all three.</p>
+
+        <div class="ai-points">
+          <div class="ai-point">
+            <div class="ai-point-icon">🔍</div>
+            <div>
+              <div class="ai-point-title">Structured for AI answers</div>
+              <div class="ai-point-text">We build your site so AI tools can read and categorize it — the right schema, the right headings, the right content structure. This is how you show up in AI Overviews and voice search results.</div>
+            </div>
+          </div>
+          <div class="ai-point">
+            <div class="ai-point-icon">💬</div>
+            <div>
+              <div class="ai-point-title">AI chat — before and after hours</div>
+              <div class="ai-point-text">Our AI assistant answers "do you do emergency furnace repair?" at 2am, qualifies the lead, captures their contact info, and texts you instantly. You call back in the morning before they've even reached your competitor.</div>
+            </div>
+          </div>
+          <div class="ai-point">
+            <div class="ai-point-icon">⭐</div>
+            <div>
+              <div class="ai-point-title">Review reputation — the AI ranking signal</div>
+              <div class="ai-point-text">AI systems heavily weight businesses with consistent 5-star review velocity. Our automated post-job review request system builds your review count and recency without you doing anything manually.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERP mockup -->
+      <div class="serp-box">
+        <div class="serp-label">Live SERP preview — Hamilton, ON</div>
+        <div class="serp-query">furnace repair Hamilton Ontario</div>
+
+        <div class="serp-ai-block">
+          <div class="serp-ai-label">✨ AI Overview — Google</div>
+          <div class="serp-ai-result highlighted">
+            <div class="serp-result-name">Your Company — HVAC Hamilton</div>
+            <div class="serp-result-meta">yoursite.ca</div>
+            <div class="serp-result-stars"><span class="stars">★★★★★</span> 4.9 (93 reviews) · Serving Hamilton + Burlington</div>
+          </div>
+          <div class="serp-ai-result">
+            <div class="serp-result-name">Competitor HVAC Services</div>
+            <div class="serp-result-meta">competitorsite.ca</div>
+            <div class="serp-result-stars"><span class="stars">★★★★☆</span> 4.2 (24 reviews)</div>
+          </div>
+        </div>
+
+        <div class="serp-organic">
+          <div class="serp-organic-item">
+            <div class="serp-organic-title">Your Company — Furnace Repair Hamilton | Fast Service</div>
+            <div class="serp-organic-url">yoursite.ca/furnace-repair-hamilton</div>
+            <div class="serp-organic-desc">Emergency furnace repair and installation in Hamilton, Burlington, and Ancaster. 24/7 availability. 93 five-star reviews. Call now: (905) ...</div>
+          </div>
+          <div class="serp-organic-item" style="opacity:0.5;">
+            <div class="serp-organic-title">Competitor HVAC — Furnace Services</div>
+            <div class="serp-organic-url">competitorsite.ca/services</div>
+            <div class="serp-organic-desc">Furnace repair and air conditioning services. Contact us for a quote.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);">
+          <p style="font-size:12px;color:var(--muted);line-height:1.5;">This is what <strong>being AI-ready</strong> looks like for an HVAC contractor. Strong structure + review velocity + optimized GBP = your business shown first when someone needs you most.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta" id="contact">
+  <div style="position:relative;z-index:1;">
+    <div class="cta-limit">Taking 3 HVAC clients in Southern Ontario this quarter</div>
+    <h2 class="cta-headline">
+      Find out what your site is<br>
+      <span>costing you in missed calls</span>
+    </h2>
+    <p class="cta-sub">Book a free 20-minute audit. We'll look at your current site, your Google Business Profile, your review count, and your top competitors — and tell you exactly what we'd fix and what it would mean for your call volume.</p>
+
+    <div class="cta-actions">
+      <a href="https://calendly.com/hagi-traderank/30min" class="btn-primary-lg">Book Your Free HVAC Site Audit →</a>
+    </div>
+
+    <div class="cta-trust">
+      <div class="cta-trust-item">No pitch until you ask for one</div>
+      <div class="cta-trust-item">Real audit, real findings</div>
+      <div class="cta-trust-item">Southern Ontario HVAC only</div>
+      <div class="cta-trust-item">Response within 24 hours</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--dark);border-top:1px solid rgba(255,255,255,0.07);padding:64px 0 32px;">
+  <div style="max-width:1160px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+      <div>
+        <a href="index.html" style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:0.01em;display:inline-block;margin-bottom:10px;">Trade<span style="color:var(--amber)">Rank</span></a>
+        <p style="font-size:13px;color:var(--muted);max-width:280px;line-height:1.6;">Web design and digital marketing for specialty trades contractors in Southern Ontario. We make your phone ring.</p>
+      </div>
+      <div style="display:flex;gap:48px;flex-wrap:wrap;">
+        <div>
+          <h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Services</h4>
+          <a href="index.html#services" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;transition:color .2s;">Foundation</a>
+          <a href="index.html#services" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Growth</a>
+          <a href="index.html#services" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Dominance</a>
+          <a href="index.html#services" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Google Ads</a>
+        </div>
+        <div>
+          <h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Trades</h4>
+          <a href="hvac.html" style="display:block;font-size:14px;color:var(--amber);text-decoration:none;margin-bottom:8px;">HVAC</a>
+          <a href="javascript:void(0)" title="Coming soon" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Plumbing</a>
+          <a href="javascript:void(0)" title="Coming soon" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Roofing</a>
+          <a href="javascript:void(0)" title="Coming soon" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Excavation</a>
+          <a href="javascript:void(0)" title="Coming soon" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Paving</a>
+        </div>
+        <div>
+          <h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Company</h4>
+          <a href="index.html#work" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Case Studies</a>
+          <a href="index.html#process" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Our Process</a>
+          <a href="index.html#faq" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">FAQ</a>
+          <a href="https://calendly.com/hagi-traderank/30min?month=2026-03" target="_blank" rel="noopener noreferrer" style="display:block;font-size:14px;color:var(--muted);text-decoration:none;margin-bottom:8px;">Book Audit</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:12px;color:var(--muted);">© 2026 TradeRank. All rights reserved. traderank.ca</p>
+      <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;">Serving Greater Toronto + Hamilton Area, Southern Ontario</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.textContent = '☰';
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
